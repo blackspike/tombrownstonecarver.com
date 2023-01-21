@@ -26,13 +26,6 @@ main.home
   //- Section
   section.container
 
-    //- Home Intro
-    HomeIntro(
-      title="Sculpture"
-    )
-      template(v-slot:content)
-        p Tom creates stone sculpture for exterior facades, interiors and gardens, his sculptural work focusing on the sheer and permanent beauty of form in nature.
-
     //- Sculpture
     HomeBody(
       title="Sculpture"
@@ -40,6 +33,8 @@ main.home
       link="/sculpture"
       linkTitle="View Tom's Sculptures"
     )
+      template(v-slot:intro)
+        p Tom creates stone sculpture for exterior facades, interiors and gardens, his sculptural work focusing on the sheer and permanent beauty of form in nature.
       template(v-slot:content)
         p He aims to express the power and vibrancy of the living world through the tactile medium of stone in all its beauty & timeless variety.
 
@@ -47,13 +42,6 @@ main.home
 
   //- Section
   section.container
-
-    //- Home Intro
-    HomeIntro(
-      title="Restoration"
-    )
-      template(v-slot:content)
-        p Tom provides architectural stone restoration services for architectural projects (from Grade One listed buildings to period domestic properties) repairing, restoring and designing ornamental details and features in stone, as well as in brick or plaster.
 
     //- Restoration
     HomeBody(
@@ -63,6 +51,8 @@ main.home
       linkTitle="Restoration Services"
       title="Restoration"
     )
+      template(v-slot:intro)
+        p Tom provides architectural stone restoration services for architectural projects (from Grade One listed buildings to period domestic properties) repairing, restoring and designing ornamental details and features in stone, as well as in brick or plaster.
 
       template(v-slot:content)
         p As well as restoring existing historic fabric, Tom creates new ornamental features from ornate classical fireplaces to Corinthian Capitals.
@@ -73,19 +63,16 @@ main.home
   //- Section
   section.container
 
-    //- Home Intro
-    HomeIntro(
-      title="Courses"
-    )
-      template(v-slot:content)
-        p Tom has established a workshop in Brighton from which he runs weekend courses in stone carving as well as private tuition sessions, teaching traditional skills to carvers of all levels, from  experienced craftsmen to those who have never picked up a mallet &amp; chisel.
-
     //- course
     HomeBody(
       image="/images/home-courses"
       link="/courses"
       linkTitle="Tom's courses"
+      title="Courses"
     )
+
+      template(v-slot:intro)
+        p Tom has established a workshop in Brighton from which he runs weekend courses in stone carving as well as private tuition sessions, teaching traditional skills to carvers of all levels, from  experienced craftsmen to those who have never picked up a mallet &amp; chisel.
 
       template(v-slot:content)
         p Tom believes the meditative and patient practice of stone carving is both rewarding and therapeutic, its time-honoured processes improving focus and cultivating calm, through mindful, creative engagement with an ancient and natural material.

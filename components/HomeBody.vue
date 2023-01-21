@@ -2,6 +2,15 @@
 
 .body(:class="{ 'reverse' : reverse }")
 
+  //- title
+  h2.body__title {{ title }}
+
+
+  //- intro
+  .body__intro
+    slot(name="intro")
+
+
   //- Image
   ImageSingle.body__image(
   :path="image"
@@ -53,20 +62,43 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .body {
-  align-items: center;
-  background-color: var(--white);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--size-9);
-  grid-template-areas: 'image' 'content';
+  padding-block: var(--size-12) var(--size-7);
 
   @include media-query('lg') {
-    grid-template-areas: 'image content';
+    align-items: center;
+    padding: 0;
+    display: grid;
+    gap: var(--size-9);
+    grid-template-areas: 'title intro' 'image content';
     grid-template-columns: 1fr 1fr;
   }
 
   &.reverse {
     @include media-query('lg') {
-      grid-template-areas: 'content image';
+      grid-template-areas: 'title intro' 'content image';
+    }
+  }
+
+  &__intro {
+    grid-area: intro;
+    font-size: var(--font-size-5);
+    line-height: var(--font-lineheight-4);
+    max-width: var(--size-content-3);
+
+    @include media-query('lg') {
+      padding-block: var(--size-12) var(--size-7);
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    font-size: var(--font-size-fluid-3);
+
+    @include media-query('lg') {
+      align-self: end;
     }
   }
 
@@ -89,16 +121,6 @@ const props = defineProps({
     }
   }
 
-  &__title {
-    font-size: var(--font-size-fluid-3);
-  }
-
-  &__intro {
-    margin-block-start: var(--size-6);
-    font-size: var(--font-size-4);
-    line-height: var(--font-lineheight-3);
-    max-width: var(--size-content-3);
-  }
 
   &__link {
     align-self: center;
