@@ -27,26 +27,45 @@
     //- Section
     section.scroll__section
 
-      //- Hero
-      .hero-title.container
+      //- Sculpture
+      HomeBody(
+        image="/images/home-sculpture"
+        link="/sculpture"
+        linkTitle="View Tom's Sculptures"
+      )
+        template(v-slot:content)
+          p He aims to express the power and vibrancy of the living world through the tactile medium of stone in all its beauty & timeless variety.
 
-        h1 Tom Brown is an award winning stone carver, sculptor, letter cutter and restorer based in Brighton.
-
-    //- Section
-    section.scroll__section
-
-      //- Hero
-      .hero-title.container
-
-        h1 Tom Brown is an award winning stone carver, sculptor, letter cutter and restorer based in Brighton.
+          p He is proud to swim against the present tide of the conceptual in current art practice.
 
     //- Section
     section.scroll__section
 
-      //- Hero
-      .hero-title.container
+      //- Sculpture
+      HomeBody(
+        :reverse="true"
+        image="/images/home-restoration"
+        link="/restoration"
+        linkTitle="Restoration Services"
+      )
+        template(v-slot:content)
+          p As well as restoring existing historic fabric, Tom creates new ornamental features from ornate classical fireplaces to Corinthian Capitals.
 
-        h1 Tom Brown is an award winning stone carver, sculptor, letter cutter and restorer based in Brighton.
+          p He is proud to swim against the present tide of the conceptual in current art practice.
+
+
+    //- Section
+    section.scroll__section
+
+      //- course
+      HomeBody(
+        image="/images/home-courses"
+        link="/courses"
+        linkTitle="Tom's courses"
+      )
+        template(v-slot:content)
+          p Tom believes the meditative and patient practice of stone carving is both rewarding and therapeutic, its time-honoured processes improving focus and cultivating calm, through mindful, creative engagement with an ancient and natural material.
+
 
 </template>
 
@@ -64,7 +83,6 @@
     align-items: center;
     min-height: 100vh;
     scroll-snap-align: start;
-    outline: 2px dotted orangered;
   }
 }
 

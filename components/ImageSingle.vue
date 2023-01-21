@@ -77,6 +77,10 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
+  fit: {
+    type: String,
+    default: 'cover'
+  },
 })
 
 </script>
@@ -86,9 +90,9 @@ const props = defineProps({
   height: auto;
 
   &__image {
-    height: auto;
+    height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: v-bind(fit);
     max-width: v-bind(max);
   }
 

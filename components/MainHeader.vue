@@ -1,33 +1,41 @@
 <template lang="pug">
 
-header.header.container
+header.header
 
-  nuxt-link.header__logo(to="/") Tom Brown
+  .header__content.container
 
-  nav.header__nav.nav
-    nuxt-link.nav__link(to="/sculpture") Sculpture
-    nuxt-link.nav__link(to="/restoration") Restoration
-    nuxt-link.nav__link(to="/courses") Courses
-    nuxt-link.nav__link(to="/about") About
-    nuxt-link.nav__link(to="/blog") Blog
-    nuxt-link.nav__link(to="/contact") Contact
+    nuxt-link.header__logo(to="/") Tom Brown
+
+    nav.header__nav.nav
+      nuxt-link.nav__link(to="/sculpture") Sculpture
+      nuxt-link.nav__link(to="/restoration") Restoration
+      nuxt-link.nav__link(to="/courses") Courses
+      nuxt-link.nav__link(to="/about") About
+      nuxt-link.nav__link(to="/blog") Blog
+      nuxt-link.nav__link(to="/contact") Contact
 
 </template>
 
 <style lang="scss" scoped>
 // Header
 .header {
-  align-items: center;
-  display: grid;
-  gap: var(--size-5);
-  grid-template-areas: 'logo nav';
-  grid-template-columns: 1fr auto;
-  padding-block: var(--size-7);
-  position: fixed;
-  top: 0;
+  background-color: var(--white);
   left: 0;
+  position: fixed;
   right: 0;
+  top: 0;
   z-index: var(--layer-3);
+
+
+  &__content {
+    align-items: center;
+    display: grid;
+    height: var(--height-header);
+    gap: var(--size-5);
+    grid-template-areas: 'logo nav';
+    grid-template-columns: 1fr auto;
+
+  }
 
   &__logo {
     color: var(--text);
