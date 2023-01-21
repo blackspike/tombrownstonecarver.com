@@ -4,6 +4,7 @@
   MainHeader
   NuxtLayout
     NuxtPage
+  MainFooter
 
 </template>
 

@@ -17,13 +17,6 @@
   //- Intro
   .body__content
 
-    //- title
-    h2.body__title {{ title }}
-
-    //- content
-    .body__intro
-      slot(name="intro")
-
     //- Body
     .body__body
       slot(name="content")
@@ -67,10 +60,8 @@ const props = defineProps({
   grid-template-areas: 'image' 'content';
 
   @include media-query('lg') {
-    gap: 0;
     grid-template-areas: 'image content';
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
   }
 
   &.reverse {
@@ -86,10 +77,9 @@ const props = defineProps({
   }
 
   &__content {
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-4);
     grid-area: content;
-    line-height: var(--font-lineheight-3);
-    padding: var(--size-fluid-5);
+    line-height: var(--font-lineheight-4);
     max-width: var(--size-content-3);
 
     .reverse & {

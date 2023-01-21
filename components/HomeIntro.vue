@@ -25,18 +25,23 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .intro {
-  align-items: flex-end;
   background-color: var(--white);
-  display: flex;
-  min-height: 100vh;
-  padding-block: var(--size-fluid-5);
+  padding-block: var(--size-13) var(--size-12);
 
   &__wrapper {
-    align-items: end;
-    display: grid;
-    grid-template-areas: 'title content';
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--size-9);
+
+    @include media-query('lg') {
+      grid-template-areas: 'title content';
+      align-items: end;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+    }
   }
+
 
   &__content {
     font-size: var(--font-size-5);

@@ -1,29 +1,28 @@
 <template lang="pug">
 
-header.header.container
+footer.footer.container
 
-  nuxt-link.header__logo(to="/") Tom Brown
+  nuxt-link.footer__logo(to="/") Tom Brown
 
-  nav.header__nav.nav
-    nuxt-link.nav__link(to="/sculpture") Sculpture
-    nuxt-link.nav__link(to="/restoration") Restoration
-    nuxt-link.nav__link(to="/courses") Courses
-    nuxt-link.nav__link(to="/about") About
-    nuxt-link.nav__link(to="/blog") Blog
+  nav.footer__nav.nav
+    nuxt-link.nav__link(to="/restoration") Facebook
+    nuxt-link.nav__link(to="/courses") Mastodon
+    nuxt-link.nav__link(to="/about") Instagram
     nuxt-link.nav__link(to="/contact") Contact
 
 </template>
 
 <style lang="scss" scoped>
-// Header
-.header {
+// footer
+.footer {
   align-items: center;
   background-color: var(--white);
   display: grid;
   gap: var(--size-5);
   grid-template-areas: 'logo nav';
   grid-template-columns: 1fr auto;
-  padding-block: var(--size-7);
+  padding-block: var(--size-13) var(--size-12);
+  z-index: var(--layer-3);
 
   &__logo {
     color: var(--text);
@@ -40,6 +39,7 @@ header.header.container
 
 // Nav
 .nav {
+  gap: var(--size-fluid-4);
   display: none;
   gap: var(--size-fluid-4);
 
