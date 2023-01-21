@@ -1,0 +1,16 @@
+query Menu($id: ID!) {
+  menu(id: $id, idType: NAME) {
+    count
+    id
+    name
+    slug
+    menuItems {
+      nodes {
+        id
+        label
+        target
+        uri
+      }
+    }
+  }
+}

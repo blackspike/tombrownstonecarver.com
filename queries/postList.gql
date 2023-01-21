@@ -1,0 +1,14 @@
+query PostList($limit: Int = 10) {
+  posts(first: $limit) {
+    nodes {
+      title
+      content
+      uri
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+    }
+  }
+}

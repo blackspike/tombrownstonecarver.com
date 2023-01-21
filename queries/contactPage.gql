@@ -1,0 +1,28 @@
+query ContactPage {
+  nodeByUri(uri: "contact-us") {
+    __typename
+    ... on Page {
+      id
+      content
+      excerpt
+      featuredImage {
+        node {
+          mediaItemUrl
+          altText
+          srcSet
+          mediaDetails {
+            file
+            height
+            width
+          }
+        }
+      }
+      slug
+      title
+      template {
+        templateName
+      }
+      uri
+    }
+  }
+}

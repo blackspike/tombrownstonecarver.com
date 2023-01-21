@@ -13,6 +13,8 @@
     "sass": "^1.57.1"
   },
   "dependencies": {
+    "nuxt-graphql-client": "^0.2.24",
+    "nuxt-plausible": "^0.1.2",
     "open-props": "^1.5.3"
   }
 }

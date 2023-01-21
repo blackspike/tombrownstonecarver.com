@@ -1,0 +1,31 @@
+query WpContent {
+  menus {
+    nodes {
+      id
+      databaseId
+      name
+      menuItems {
+        edges {
+          node {
+            label
+            target
+            uri
+          }
+        }
+      }
+    }
+  }
+  siteSettings {
+    site {
+      meta {
+        title
+        shortTitle
+        description
+      }
+      banner {
+        title
+        link
+      }
+    }
+  }
+}

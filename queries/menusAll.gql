@@ -1,0 +1,19 @@
+query MenusAll {
+  menus {
+    nodes {
+      id
+      databaseId
+      name
+      menuItems {
+        edges {
+          node {
+            id
+            label
+            target
+            uri
+          }
+        }
+      }
+    }
+  }
+}

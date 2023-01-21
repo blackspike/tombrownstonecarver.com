@@ -1,0 +1,10 @@
+query HomePage {
+  nodeByUri(uri: "home-page") {
+    __typename
+    ... on Page {
+      id
+      homePage {
+      }
+    }
+  }
+}

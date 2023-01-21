@@ -1,0 +1,42 @@
+query PostBySlug($uri: String!) {
+  nodeByUri(uri: $uri) {
+    __typename
+    ...ContentType
+    ...Page
+    ...Post
+  }
+}
+
+fragment Page on Page {
+  title
+  content
+  featuredImage {
+    node {
+      altText
+      srcSet
+      mediaDetails {
+        height
+        width
+      }
+    }
+  }
+}
+
+fragment ContentType on ContentType {
+  uri
+  contentNodes {
+    nodes {
+      ...Post
+    }
+  }
+}
+
+fragment Post on Post {
+  __typename
+  uri
+  content
+  title
+  template {
+    templateName
+  }
+}
