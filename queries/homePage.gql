@@ -1,9 +1,28 @@
 query HomePage {
-  nodeByUri(uri: "home-page") {
+  nodeByUri(uri: "home") {
     __typename
     ... on Page {
       id
-      homePage {
+      title
+      home {
+        pageTitle
+        content {
+          title
+          link {
+            title
+            url
+          }
+          intro
+          content
+          image {
+            altText
+            srcSet
+            mediaDetails {
+              height
+              width
+            }
+          }
+        }
       }
     }
   }
