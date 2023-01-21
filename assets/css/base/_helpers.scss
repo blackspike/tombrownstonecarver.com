@@ -1,0 +1,83 @@
+// --------------------------
+// helper classes
+// --------------------------
+
+/* No touch on mobile
+============================= */
+
+.touch-disabled {
+  pointer-events: none;
+
+  @media (hover: hover) and (pointer: fine) {
+    pointer-events: all;
+  }
+}
+
+/* Clamp
+============================= */
+
+.clamp {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* No wrap ellipsis
+============================= */
+
+.nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Hide text while making it readable for screen readers
+============================= */
+
+.hide-text {
+  overflow: hidden;
+  padding: 0;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/* Hide element while making it readable for screen readers
+============================= */
+
+.screen-reader-text,
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Skip link
+============================= */
+.skip-link {
+  background-color: var(--brand);
+  color: var(--bg);
+  display: flex;
+  font-weight: bold;
+  height: var(--h-header);
+  justify-self: start;
+  padding: var(--m-sm) var(--m);
+  place-items: center;
+  position: fixed;
+  text-transform: uppercase;
+  top: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: var(--z-skip-link);
+
+  &:focus {
+    color: var(--bg);
+    position: fixed;
+    transform: translateY(0%);
+  }
+}

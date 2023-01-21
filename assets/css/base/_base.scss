@@ -1,0 +1,159 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+:root {
+  accent-color: var(--brand);
+  caret-color: var(--brand);
+}
+
+html {
+  background-color: var(--background);
+  height: 100%;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text);
+  flex: 1;
+  font-family: var(--font-sans);
+  font-feature-settings: 'kern';
+  font-size: var(--font-size-1);
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-synthesis: none;
+  font-weight: var(--font-weight-5);
+  line-height: var(--font-lineheight-3);
+  min-height: 100%;
+  position: relative;
+  text-rendering: optimizelegibility;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+video,
+image,
+iframe {
+  max-width: 100%;
+}
+
+// Selection
+::selection {
+  background-color: var(--brand);
+  color: var(--black);
+}
+
+// Links
+a,
+.link {
+  color: var(--text-link);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.1s ease;
+
+  @include on-event {
+    color: var(--text-link-hover);
+    text-decoration: none;
+  }
+}
+
+hr {
+  border-block-end-width: var(--border-size-1);
+  border-block-start-width: 0;
+  border-color: var(--border);
+  border-inline-width: 0;
+  height: var(--border-size-1);
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-7);
+}
+
+// Lists
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Headings
+
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+  font-family: var(--font-brand);
+  font-weight: var(--font-weight-7);
+  line-height: var(--font-lineheight-0);
+  margin-block: 0;
+  word-wrap: break-word;
+}
+
+.h1,
+h1 {
+  font-size: var(--font-size-fluid-2);
+  font-weight: var(--font-weight-4);
+
+  @include media-query('md') {
+    font-size: var(--font-size-fluid-3);
+
+  }
+}
+
+.h2,
+h2 {
+  font-size: var(--font-size-fluid-1);
+  letter-spacing: -0.5px;
+
+  @include media-query('md') {
+    font-size: var(--font-size-fluid-2);
+
+  }
+}
+
+.h3,
+h3 {
+  font-size: var(--font-size-3);
+  letter-spacing: -0.5px;
+
+  @include media-query('md') {
+    font-size: var(--font-size-fluid-1);
+  }
+}
+
+.h4,
+h4 {
+  font-size: var(--font-size-2);
+}
+
+.h5,
+h5 {
+  font-size: var(--font-size-1);
+}
+
+.h6,
+h6 {
+  font-size: var(--font-size-00);
+}
+
+p {
+  margin-block-end: var(--size-4);
+}
+
+
+.smol {
+  font-size: var(--font-size-1);
+}

@@ -1,0 +1,24 @@
+:root {
+
+  /* Base colours */
+  --gray-10: #1e1e1e;
+  --black: #000;
+  --white: #eee;
+  --brand: #D2891B;
+
+  /* Text colours */
+  --text: var(--gray-9);
+  --text-link: var(--brand);
+  --text-link-hover: var(--brand);
+
+  /* Misc colours */
+  --border: var(--gray-3);
+  --background: var(--white);
+
+  /* Font Families */
+  --font-brand: ss_pro_semibold;
+
+  /* Default easing */
+  --easing: var(--ease-in-out-5);
+
+}

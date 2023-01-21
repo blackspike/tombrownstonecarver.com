@@ -1,0 +1,43 @@
+// --------------------------
+// Page transitions
+// --------------------------
+
+
+// .page-leave-active {
+//   animation: 1.25s var(--ease-in-out-5) wipe-down both;
+// }
+
+// .page-enter-active {
+//   animation: 1.25s var(--ease-in-out-5) wipe-up both;
+//   background-color: transpare;
+// }
+
+
+/* Slide fade
+============================= */
+
+.slide-fade-enter-active {
+  transition: all 0.4s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
+}
+
+// Simple fade
+.simple-fade-enter-active,
+.simple-fade-leave-active {
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.simple-fade-enter,
+.simple-fade-leave-to {
+  opacity: 0;
+}

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'ss_pro_regular';
+  src: url('../../assets/fonts/sourceserifpro/sourceserifpro-regular-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/sourceserifpro/sourceserifpro-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ss_pro_semibold';
+  src: url('../../assets/fonts/sourceserifpro/sourceserifpro-semibold-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/sourceserifpro/sourceserifpro-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ss_pro_light';
+  src: url('../../assets/fonts/sourceserifpro/sourceserifpro-light-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/sourceserifpro/sourceserifpro-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

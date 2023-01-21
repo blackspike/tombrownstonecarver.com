@@ -1,0 +1,34 @@
+@charset 'UTF-8';
+
+// Open Props
+@import '~/node_modules/open-props/borders.min.css';
+@import '~/node_modules/open-props/easings.min.css';
+@import '~/node_modules/open-props/fonts.min.css';
+@import '~/node_modules/open-props/gray.min.css';
+@import '~/node_modules/open-props/shadows.min.css';
+@import '~/node_modules/open-props/sizes.min.css';
+@import '~/node_modules/open-props/zindex.min.css';
+
+// Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/transitions';
+
+// Vendor
+@import 'vendor/reset-josh';
+
+// Base
+@import 'base/fonts';
+@import 'base/helpers';
+@import 'base/base';
+
+// Components
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/stacks';
+
+// Layout
+@import 'layout/pages';
+
+// Pages
+@import 'pages/home';
