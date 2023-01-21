@@ -109,7 +109,7 @@ main.home
     color: var(--white);
 
     @include media-query('lg') {
-      font-size: 6rem;
+      font-size: 5rem;
     }
   }
 }
