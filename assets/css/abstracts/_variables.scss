@@ -18,6 +18,8 @@
   /* Font Families */
   --font-brand: ss_pro_semibold;
 
+  --font-size-fluid-4: clamp(2rem, 11vw, 4rem);
+
   /* Default easing */
   --easing: var(--ease-in-out-5);
 

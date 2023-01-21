@@ -1,6 +1,8 @@
 <template lang="pug">
 
 .body(:class="{ 'reverse' : reverse }")
+
+  //- Image
   ImageSingle.body__image(
   :path="image"
   :width="1200"
@@ -12,9 +14,19 @@
   :lazy="true"
   )
 
-  //- Body
+  //- Intro
   .body__content
-    slot(name="content")
+
+    //- title
+    h2.body__title {{ title }}
+
+    //- content
+    .body__intro
+      slot(name="intro")
+
+    //- Body
+    .body__body
+      slot(name="content")
 
     //- Link
     nuxt-link.body__link(:to="link") {{ linkTitle }}
@@ -23,8 +35,11 @@
 
 <script setup>
 const props = defineProps({
-
   image: {
+    type: String,
+    required: true
+  },
+  title: {
     type: String,
     required: true
   },
@@ -45,34 +60,37 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .body {
-  padding-block-start: var(--height-header);
   align-items: center;
   background-color: var(--white);
-  min-height: 100vh;
   display: grid;
-  grid-template-areas: 'image content' 'image link';
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3fr 2fr;
+  gap: var(--size-9);
+  grid-template-areas: 'image' 'content';
+
+  @include media-query('lg') {
+    gap: 0;
+    grid-template-areas: 'image content';
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+  }
 
   &.reverse {
-    @include media-query('md') {
-      grid-template-areas: 'content image' 'link image';
+    @include media-query('lg') {
+      grid-template-areas: 'content image';
     }
   }
 
   &__image {
     grid-area: image;
     height: 100%;
+    overflow: hidden;
   }
 
   &__content {
-    align-self: end;
-    font-size: var(--font-size-3);
+    font-size: var(--font-size-2);
     grid-area: content;
-    line-height: var(--font-lineheight-5);
+    line-height: var(--font-lineheight-3);
     padding: var(--size-fluid-5);
     max-width: var(--size-content-3);
-
 
     .reverse & {
       @include media-query('md') {
@@ -81,10 +99,21 @@ const props = defineProps({
     }
   }
 
+  &__title {
+    font-size: var(--font-size-fluid-3);
+  }
+
+  &__intro {
+    margin-block-start: var(--size-6);
+    font-size: var(--font-size-4);
+    line-height: var(--font-lineheight-3);
+    max-width: var(--size-content-3);
+  }
+
   &__link {
     align-self: center;
     font-family: var(--font-brand);
-    font-size: var(--font-size-fluid-2);
+    font-size: var(--font-size-5);
     grid-area: link;
     text-decoration: none;
   }

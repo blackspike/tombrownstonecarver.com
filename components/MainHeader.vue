@@ -2,7 +2,7 @@
 
 header.header
 
-  .header__content.container
+  .header__content
 
     nuxt-link.header__logo(to="/") Tom Brown
 
@@ -20,11 +20,15 @@ header.header
 // Header
 .header {
   background-color: var(--white);
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
   z-index: var(--layer-3);
+  padding-inline: var(--size-9);
+
+  @include media-query('lg') {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
 
 
   &__content {
@@ -34,7 +38,6 @@ header.header
     gap: var(--size-5);
     grid-template-areas: 'logo nav';
     grid-template-columns: 1fr auto;
-
   }
 
   &__logo {
@@ -52,8 +55,12 @@ header.header
 
 // Nav
 .nav {
-  display: flex;
   gap: var(--size-fluid-4);
+  display: none;
+
+  @include media-query('lg') {
+    display: flex;
+  }
 
   &__link {
     color: var(--text);
