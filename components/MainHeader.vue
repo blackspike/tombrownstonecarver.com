@@ -23,6 +23,11 @@ header.header.container
   grid-template-areas: 'logo nav';
   grid-template-columns: 1fr auto;
   padding-block: var(--size-7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--layer-3);
 
   &__logo {
     color: var(--text);

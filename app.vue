@@ -1,6 +1,6 @@
 <template lang="pug">
 
-.name
+.app
   MainHeader
   NuxtLayout
     NuxtPage
