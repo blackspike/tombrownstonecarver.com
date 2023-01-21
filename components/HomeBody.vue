@@ -5,7 +5,6 @@
   //- title
   h2.body__title {{ title }}
 
-
   //- intro
   .body__intro
     slot(name="intro")
@@ -13,14 +12,14 @@
 
   //- Image
   ImageSingle.body__image(
-  :path="image"
-  :width="1200"
-  :height="1200"
-  type="jpg"
-  :avif="true"
-  :webp="true"
-  fit="cover"
-  :lazy="true"
+    :path="image"
+    :width="1200"
+    :height="1200"
+    type="jpg"
+    :avif="true"
+    :webp="true"
+    fit="cover"
+    :lazy="true"
   )
 
   //- Intro
@@ -86,7 +85,6 @@ const props = defineProps({
     grid-area: intro;
     font-size: var(--font-size-5);
     line-height: var(--font-lineheight-4);
-    max-width: var(--size-content-3);
 
     @include media-query('lg') {
       padding-block: var(--size-12) var(--size-7);

@@ -6,7 +6,7 @@ main.home
 
     //- Hero
     ImageSingle.hero__image(
-      path="/images/tom-home-hero"
+      path="/images/home/tom-home-hero"
       :width="1920"
       :height="2880"
       type="jpg"
@@ -29,7 +29,7 @@ main.home
     //- Sculpture
     HomeBody(
       title="Sculpture"
-      image="/images/home-sculpture"
+      image="/images/home/home-sculpture"
       link="/sculpture"
       linkTitle="View Tom's Sculptures"
     )
@@ -46,7 +46,7 @@ main.home
     //- Restoration
     HomeBody(
       :reverse="true"
-      image="/images/home-restoration"
+      image="/images/home/home-restoration"
       link="/restoration"
       linkTitle="Restoration Services"
       title="Restoration"
@@ -65,7 +65,7 @@ main.home
 
     //- course
     HomeBody(
-      image="/images/home-courses"
+      image="/images/home/home-courses"
       link="/courses"
       linkTitle="Tom's courses"
       title="Courses"
