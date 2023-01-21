@@ -81,3 +81,10 @@
     transform: translateY(0%);
   }
 }
+
+/* Containers
+============================= */
+.container {
+  inline-size: min(90vw, var(--max-width-container));
+  margin-inline: auto;
+}

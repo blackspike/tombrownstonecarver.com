@@ -1,10 +1,6 @@
 <template lang="pug">
 
 .home
-  h1 Hello World!
-
-  p test text
-
 </template>
 
 <script setup>
