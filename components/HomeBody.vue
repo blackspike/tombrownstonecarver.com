@@ -6,56 +6,55 @@
   h2.body__title {{ title }}
 
   //- intro
-  .body__intro
-    slot(name="intro")
+  .body__intro(v-html="intro")
 
 
   //- Image
-  ImageSingle.body__image(
-    :path="image"
-    :width="1200"
-    :height="1200"
-    type="jpg"
-    :avif="true"
-    :webp="true"
-    fit="cover"
-    :lazy="true"
+  img.body__image(
+    sizes="sm:100vw md:50vw lg:1920px"
+    :srcset="image.srcSet"
+    :alt="image.altText"
+    :height='image.mediaDetails.height'
+    :width='image.mediaDetails.width'
   )
 
   //- Intro
   .body__content
 
     //- Body
-    .body__body
-      slot(name="content")
+    .body__body(v-html="content")
 
     //- Link
-    nuxt-link.body__link(:to="link") {{ linkTitle }}
+    nuxt-link.body__link(v-if="link" :to="link.url.replace('https://cms.blackspike.com/tom-brown', '')") {{ link.title }}
 
 </template>
 
 <script setup>
 const props = defineProps({
   image: {
-    type: String,
+    type: Object,
     required: true
   },
   title: {
     type: String,
     required: true
   },
-  linkTitle: {
+  link: {
+    type: Object,
+    required: false
+  },
+  intro: {
     type: String,
     required: true
   },
-  link: {
+  content: {
     type: String,
     required: true
   },
   reverse: {
     type: Boolean,
-    default: false,
-  }
+    required: false
+  },
 })
 </script>
 
@@ -70,7 +69,7 @@ const props = defineProps({
     align-items: center;
     padding: 0;
     display: grid;
-    gap: var(--size-9);
+    gap: var(--size-11) var(--size-9);
     grid-template-areas: 'title intro' 'image content';
     grid-template-columns: 1fr 1fr;
   }
@@ -87,7 +86,11 @@ const props = defineProps({
     line-height: var(--font-lineheight-4);
 
     @include media-query('lg') {
-      padding-block: var(--size-12) var(--size-7);
+      padding-block: var(--size-13) 0;
+    }
+
+    &:deep(p:last-of-type) {
+      margin-block-end: 0;
     }
   }
 

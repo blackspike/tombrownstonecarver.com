@@ -1,92 +1,43 @@
 <template lang="pug">
 
 main.home
+
+  //- Hero
   section.hero
 
-    pre {{ homePage }}
+    //- Hero Image
+    img.hero__image(
+      :alt="homeData.featuredImage.node.altText"
+      :height='homeData.featuredImage.node.mediaDetails.height'
+      :srcset="homeData.featuredImage.node.srcSet"
+      :width='homeData.featuredImage.node.mediaDetails.width'
+      sizes="sm:100vw md:50vw lg:1920px"
+    )
 
-    //- Hero
-    ImageSingle.hero__image(
-      path="/images/home/tom-home-hero"
-      :width="1920"
-      :height="2880"
-      type="jpg"
-      :avif="true"
-      :webp="true"
-      :lazy="false"
-      fit="cover"
-      )
-
+    //- Hero Title
     .hero__content.container
 
-      h1.hero__title Tom Brown is an award winning stone carver, sculptor, letter cutter and restorer based in Brighton.
+      h1.hero__title {{ homeData.home.pageTitle }}
 
-  //- Home content
+  //- Home content sections
 
-
-  //- Section
-  section.container
+  section.container(v-for="(section, index) in homeData.home.content")
 
     //- Sculpture
     HomeBody(
-      title="Sculpture"
-      image="/images/home/home-sculpture"
-      link="/sculpture"
-      linkTitle="View Tom's Sculptures"
+      :content="section.content"
+      :image="section.image"
+      :intro="section.intro"
+      :link="section.link"
+      :reverse="index % 2 !== 0"
+      :title="section.title"
     )
-      template(v-slot:intro)
-        p Tom creates stone sculpture for exterior facades, interiors and gardens, his sculptural work focusing on the sheer and permanent beauty of form in nature.
-      template(v-slot:content)
-        p He aims to express the power and vibrancy of the living world through the tactile medium of stone in all its beauty & timeless variety.
-
-        p He is proud to swim against the present tide of the conceptual in current art practice.
-
-  //- Section
-  section.container
-
-    //- Restoration
-    HomeBody(
-      :reverse="true"
-      image="/images/home/home-restoration"
-      link="/restoration"
-      linkTitle="Restoration Services"
-      title="Restoration"
-    )
-      template(v-slot:intro)
-        p Tom provides architectural stone restoration services for architectural projects (from Grade One listed buildings to period domestic properties) repairing, restoring and designing ornamental details and features in stone, as well as in brick or plaster.
-
-      template(v-slot:content)
-        p As well as restoring existing historic fabric, Tom creates new ornamental features from ornate classical fireplaces to Corinthian Capitals.
-
-        p He is proud to swim against the present tide of the conceptual in current art practice.
-
-
-  //- Section
-  section.container
-
-    //- course
-    HomeBody(
-      image="/images/home/home-courses"
-      link="/courses"
-      linkTitle="Tom's courses"
-      title="Courses"
-    )
-
-      template(v-slot:intro)
-        p Tom has established a workshop in Brighton from which he runs weekend courses in stone carving as well as private tuition sessions, teaching traditional skills to carvers of all levels, from  experienced craftsmen to those who have never picked up a mallet &amp; chisel.
-
-      template(v-slot:content)
-        p Tom believes the meditative and patient practice of stone carving is both rewarding and therapeutic, its time-honoured processes improving focus and cultivating calm, through mindful, creative engagement with an ancient and natural material.
-
-
 </template>
 
 <script setup>
 
-/* Get Page
-============================= */
-
-const { data: homePage } = await useAsyncData('homePage', () => GqlHomePage())
+const { data } = await useAsyncData('homePage', () => GqlHomePage())
+const homeData = data.value.nodeByUri
 
 </script>
 
@@ -101,6 +52,7 @@ const { data: homePage } = await useAsyncData('homePage', () => GqlHomePage())
     grid-column: 1;
     height: 200vh;
     z-index: 1;
+    object-fit: cover;
   }
 
   &__content {

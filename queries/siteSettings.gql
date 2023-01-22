@@ -1,0 +1,13 @@
+query SiteSettings {
+  siteSettings {
+    siteSettings {
+      socialLinks {
+        links {
+          target
+          title
+          url
+        }
+      }
+    }
+  }
+}

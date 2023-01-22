@@ -4,6 +4,16 @@ query HomePage {
     ... on Page {
       id
       title
+      featuredImage {
+        node {
+          altText
+          srcSet
+          mediaDetails {
+            height
+            width
+          }
+        }
+      }
       home {
         pageTitle
         content {

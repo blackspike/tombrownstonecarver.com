@@ -1,16 +1,22 @@
 <template lang="pug">
+.footer-wrapper
+  footer.footer.container
 
-footer.footer.container
+    nuxt-link.footer__logo(to="/") Tom Brown
 
-  nuxt-link.footer__logo(to="/") Tom Brown
-
-  nav.footer__nav.nav
-    nuxt-link.nav__link(to="/restoration") Facebook
-    nuxt-link.nav__link(to="/courses") Mastodon
-    nuxt-link.nav__link(to="/about") Instagram
-    nuxt-link.nav__link(to="/contact") Contact
+    nav.footer__nav.nav
+      a.nav__link(v-for="link in footerLinks" :href="link.links.url") {{ link.links.title }}
+      nuxt-link.nav__link(to="/contact") Contact
 
 </template>
+
+<script setup>
+
+const { data } = await useAsyncData('siteSettings', () => GqlSiteSettings())
+const footerLinks = data.value.siteSettings.siteSettings.socialLinks
+
+</script>
+
 
 <style lang="scss" scoped>
 // footer
