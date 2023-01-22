@@ -7,6 +7,7 @@ main.page
 
     //- Image
     img.page__image(
+      v-if="page.featuredImage.node.srcSet"
       sizes="sm:100vw md:50vw lg:1920px"
       :srcset="page.featuredImage.node.srcSet"
       :alt="page.featuredImage.node.altText"
