@@ -40,6 +40,14 @@ const slug = route.params.slug[0]
 const { data } = await useAsyncData(slug, () => GqlPostBySlug({ uri: slug }))
 const page = data.value.nodeByUri
 
+useHead({
+  title: page.title,
+  meta: [
+    { name: 'description', content: page.intro }
+  ],
+})
+
+
 </script>
 
 <style lang="scss" scoped>

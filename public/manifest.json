@@ -1,0 +1,40 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "Tom Brown",
+  "description": "Sculpture, restoration, memorials & tuition. Member of the Master Carvers Association. Director at London Stone Carving Ltd",
+  "short_name": "Tom Brown",
+  "start_url": "/",
+  "display": "standalone",
+  "scope": "/",
+  "orientation": "portrait",
+  "splash_pages": null,
+  "theme_color": "#D2891B",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "/192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

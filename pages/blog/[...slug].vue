@@ -23,6 +23,12 @@ const slug = route.params.slug[0]
 const { data } = await useAsyncData(slug, () => GqlPostBySlug({ uri: slug }))
 const post = data.value.nodeByUri
 
+useHead({
+  title: post.title,
+  meta: [
+    { name: 'description', content: post.content }
+  ],
+})
 
 </script>
 

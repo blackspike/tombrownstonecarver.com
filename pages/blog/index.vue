@@ -34,6 +34,14 @@ const posts = data.value.posts.nodes
 //   })
 // })
 
+useHead({
+  title: 'Blog',
+  meta: [
+    { name: 'description', content: `Tom Brown's Blog` }
+  ],
+})
+
+
 </script>
 
 <style lang="scss" scoped>
