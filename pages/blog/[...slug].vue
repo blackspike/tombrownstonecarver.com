@@ -63,19 +63,14 @@ useHead({
   }
 
   &__content-wrapper {
-    padding-block: var(--size-12) var(--size-7);
-    display: grid;
-    gap: var(--size-9);
-    grid-template-areas: '. content .';
-    grid-template-columns: auto min(90vw, var(--max-width-container)) auto;
-
+    padding-block: var(--size-4) var(--size-7);
   }
 
   &__content {
     font-size: var(--font-size-3);
-    grid-area: content;
     line-height: var(--font-lineheight-4);
     max-width: var(--size-content-3);
+    margin-inline: auto;
   }
 }
 </style>
