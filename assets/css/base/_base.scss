@@ -104,34 +104,21 @@ h6 {
 
 .h1,
 h1 {
-  font-size: var(--font-size-fluid-2);
+  font-size: var(--font-size-fluid-3);
   font-weight: normal;
-
-  @include media-query('md') {
-    font-size: var(--font-size-fluid-3);
-
-  }
 }
 
 .h2,
 h2 {
-  font-size: var(--font-size-fluid-1);
+  font-size: var(--font-size-fluid-2);
   letter-spacing: -0.5px;
-
-  @include media-query('md') {
-    font-size: var(--font-size-fluid-2);
-
-  }
 }
 
 .h3,
 h3 {
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-fluid-1);
   letter-spacing: -0.5px;
 
-  @include media-query('md') {
-    font-size: var(--font-size-fluid-1);
-  }
 }
 
 .h4,

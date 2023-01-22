@@ -2,34 +2,32 @@
 
 main.page
 
-  .hero
+  //- Hero
+  .page__hero
 
-    //- Hero
-    .hero__hero
+    //- Image
+    img.page__image(
+      sizes="sm:100vw md:50vw lg:1920px"
+      :srcset="page.featuredImage.node.srcSet"
+      :alt="page.featuredImage.node.altText"
+      :height='page.featuredImage.node.mediaDetails.height'
+      :width='page.featuredImage.node.mediaDetails.width'
+    )
 
-      //- Image
-      img.hero__image(
-        sizes="sm:100vw md:50vw lg:1920px"
-        :srcset="page.featuredImage.node.srcSet"
-        :alt="page.featuredImage.node.altText"
-        :height='page.featuredImage.node.mediaDetails.height'
-        :width='page.featuredImage.node.mediaDetails.width'
-      )
+    //- Title
+    h1.page__title.container {{ page.title }}
 
+  //- Wrapper
+  .container
 
-      //- title
-      h1.hero__title.container {{ page.title }}
+    //- Content
+    .page__content-wrapper
 
-    .container
+      //- Intro
+      .page__intro(v-html="page.intro.intro")
 
-      //- Hero content
-      .hero__content-wrapper
-
-        //- intro
-        .hero__intro(v-html="page.intro.intro")
-
-        //- hero
-        .hero__content(v-html="page.content")
+      //- Content
+      .page__content(v-html="page.content")
 
 
 </template>
@@ -44,7 +42,7 @@ const page = data.value.nodeByUri
 </script>
 
 <style lang="scss" scoped>
-.hero {
+.page {
   width: 100%;
 
   &__hero {

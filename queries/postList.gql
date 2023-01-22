@@ -1,12 +1,18 @@
-query PostList($limit: Int = 10) {
+query PostList($limit: Int = 1000) {
   posts(first: $limit) {
     nodes {
       title
-      content
-      uri
+      slug
       featuredImage {
         node {
+          altText
+          srcSet
           sourceUrl
+          sizes
+          mediaDetails {
+            height
+            width
+          }
         }
       }
     }

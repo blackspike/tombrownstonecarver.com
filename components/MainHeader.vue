@@ -65,6 +65,10 @@ const { data } = await useAsyncData('siteSettings', () => GqlSiteSettings())
     color: var(--white);
     font-size: var(--font-size-3);
     text-decoration: none;
+
+    &.router-link-active {
+      color: var(--brand);
+    }
   }
 }
 </style>

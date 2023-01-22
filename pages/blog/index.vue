@@ -1,27 +1,66 @@
 <template lang="pug">
 
-main.page
+main.blog
 
-  //- About
-  Hero(
-    title="Blog"
-    image="/images/about/about-hero"
-  )
-    template(v-slot:intro)
-      p Tom provides architectural stone About services for architectural projects (from Grade One listed buildings to period domestic properties) repairing, restoring and designing ornamental details and features in stone, as well as in brick or plaster.
-    template(v-slot:content)
-      p As well as restoring existing historic fabric, Tom creates new ornamental features from ornate classical fireplaces to Corinthian Capitals.
+  //- Wrapper
+  .container
 
-      p He is proud to swim against the present tide of the conceptual in current art practice.
+    //- Title
+    h1.blog__title Blog
+    //- Content
+    .blog__content
+      //- pre {{ posts }}
+      CardList(:cards="posts")
+
+    //- Content
+    //- .blog__content
+    //-   //- pre {{ posts }}
+    //-   CardList(:cards="mastoPosts")
+
+    //- pre {{ mastoPosts }}
+
 
 </template>
 
 <script setup>
-// const xxx = ref()
-// const props = defineProps()
+const { data } = await useAsyncData('blog-home', () => GqlPostList({ limit: 1000 }))
+
+const posts = data.value.posts.nodes
+
+// // Mastodon
+// const { data: mastoData } = await useFetch('https://mastodon.cloud/api/v1/accounts/109726678985099180/statuses')
+// const mastoPosts = computed(() => {
+//   return mastoData.map(item => {
+//   })
+// })
+
 </script>
 
 <style lang="scss" scoped>
-// .page {
-// }
+.blog {
+  width: 100%;
+  background-color: var(--gray-9);
+  padding-block: var(--size-12);
+  color: var(--white);
+
+  &__hero {
+    display: grid;
+  }
+
+  &__title {
+    color: var(--white);
+    display: flex;
+    font-size: var(--font-size-fluid-3);
+    padding-block: var(--size-9);
+
+    @include media-query('lg') {
+      font-size: 6rem;
+    }
+
+    font-size: var(--font-size-3);
+    grid-area: content;
+    line-height: var(--font-lineheight-4);
+    max-width: var(--size-content-3);
+  }
+}
 </style>
