@@ -7,6 +7,12 @@ export default defineNuxtConfig({
   //   domain: "tombrownstonecarver.com",
   // },
 
+  // Transitions
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+  },
+
+  // GraphQL
   runtimeConfig: {
     public: {
       GQL_HOST: "https://cms.blackspike.com/tom-brown/graphql",

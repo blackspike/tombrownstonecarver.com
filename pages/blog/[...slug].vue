@@ -29,10 +29,9 @@ const post = data.value.nodeByUri
 <style lang="scss" scoped>
 .post {
   width: 100%;
-
-  &__hero {
-    display: grid;
-  }
+  background-color: var(--gray-9);
+  color: var(--white);
+  padding-block: var(--size-12);
 
   &__title {
     align-items: flex-end;
@@ -42,7 +41,7 @@ const post = data.value.nodeByUri
     grid-column: 1;
     grid-row: 1;
     max-height: 100vh;
-    padding-block-end: 10vh;
+    padding-block: var(--size-9);
 
     @include media-query('lg') {
       font-size: 6rem;
@@ -58,24 +57,12 @@ const post = data.value.nodeByUri
   }
 
   &__content-wrapper {
-    display: flex;
-    flex-direction: column;
+    padding-block: var(--size-12) var(--size-7);
+    display: grid;
     gap: var(--size-9);
-    padding-block: var(--size-10) 0;
+    grid-template-areas: '. content .';
+    grid-template-columns: auto min(90vw, var(--max-width-container)) auto;
 
-    @include media-query('lg') {
-      padding-block: var(--size-12) var(--size-7);
-      display: grid;
-      gap: var(--size-9);
-      grid-template-areas: 'intro content';
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  &__intro {
-    grid-area: intro;
-    font-size: var(--font-size-5);
-    line-height: var(--font-lineheight-4);
   }
 
   &__content {

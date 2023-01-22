@@ -40,8 +40,8 @@ const posts = data.value.posts.nodes
 .blog {
   width: 100%;
   background-color: var(--gray-9);
-  padding-block: var(--size-12);
   color: var(--white);
+  padding-block: var(--size-12);
 
   &__hero {
     display: grid;

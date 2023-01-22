@@ -5,15 +5,5 @@
   NuxtLayout
     NuxtPage
   MainFooter
-
+  NuxtLoadingIndicator(color="var(--brand)" :height="3")
 </template>
-
-<script setup>
-// const xxx = ref()
-// const props = defineProps()
-</script>
-
-<style lang="scss" scoped>
-// .name {
-// }
-</style>
