@@ -2,9 +2,11 @@
 .header-wrapper
   header.header.container
 
-    nuxt-link.header__logo(to="/")  {{ data.generalSettings.title }}
+    //- Logo
+    nuxt-link.header__logo(to="/" v-on:click.native="menuOpen = false")  {{ data.generalSettings.title }}
 
-    nav.header__nav.nav
+    //- Nav
+    nav.header__nav.nav#nav-main
       nuxt-link.nav__link(to="/sculpture") Sculpture
       nuxt-link.nav__link(to="/restoration") Restoration
       nuxt-link.nav__link(to="/courses") Courses
@@ -12,10 +14,34 @@
       nuxt-link.nav__link(to="/blog") Blog
       nuxt-link.nav__link(to="/contact") Contact
 
+    //- Nav mobile
+    nav.header__nav-mobile.nav-mobile#nav-mobile(v-if="menuOpen")
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/sculpture") Sculpture
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/restoration") Restoration
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/courses") Courses
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/about") About
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/blog") Blog
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/contact") Contact
+
+    //-  Nav toggle button
+    button.btn-toggle-nav.header__nav-toggle(
+      :aria-expanded='menuOpen'
+      @click="menuOpen = !menuOpen"
+      aria-controls='nav-mobile'
+      aria-label='Toggle Menu'
+      type='button'
+    )
+      span(v-if="menuOpen") Close
+      span(v-else) Menu
+
 </template>
 
 <script setup>
+
 const { data } = await useAsyncData('siteSettings', () => GqlSiteSettings())
+
+const menuOpen = ref(false)
+
 </script>
 
 <style lang="scss" scoped>
@@ -35,9 +61,13 @@ const { data } = await useAsyncData('siteSettings', () => GqlSiteSettings())
   align-items: center;
   display: grid;
   gap: var(--size-5);
-  grid-template-areas: 'logo nav';
+  grid-template-areas: 'logo toggle' 'nav-mobile nav-mobile';
   grid-template-columns: 1fr auto;
   padding-block: var(--size-7);
+
+  @include media-query('lg') {
+    grid-template-areas: 'logo nav';
+  }
 
   &__logo {
     color: var(--white);
@@ -50,9 +80,22 @@ const { data } = await useAsyncData('siteSettings', () => GqlSiteSettings())
   &__nav {
     grid-area: nav;
   }
+
+  &__nav-mobile {
+    grid-area: nav-mobile;
+  }
+
+  &__nav-toggle {
+    grid-area: toggle;
+    display: block;
+
+    @include media-query('lg') {
+      display: none;
+    }
+  }
 }
 
-// Nav
+// Nav main
 .nav {
   display: none;
   gap: var(--size-fluid-4);
@@ -69,6 +112,56 @@ const { data } = await useAsyncData('siteSettings', () => GqlSiteSettings())
 
     &.router-link-active {
       color: var(--brand);
+    }
+  }
+}
+
+// Toggle
+.btn-toggle-nav {
+  background-color: transparent;
+  border-width: 0;
+  color: var(--white);
+  display: block;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-7);
+  padding: var(--size-2) var(--size-7);
+  z-index: var(--layer-4);
+
+  @include media-query('lg') {
+    display: none;
+  }
+}
+
+// Nav mobile
+.nav-mobile {
+  background-color: var(--white);
+  box-shadow: var(--shadow-4);
+  border-radius: var(--radius-2);
+  display: flex;
+  flex-direction: column;
+  justify-self: end;
+  padding: var(--size-2) 0;
+  z-index: var(--layer-4);
+
+  @include media-query('lg') {
+    display: none;
+  }
+
+  &__link {
+    color: var(--text);
+    display: block;
+    font-size: var(--font-size-3);
+    padding: var(--size-2) var(--size-7);
+    text-decoration: none;
+
+    &.router-link-active {
+      color: var(--brand);
+    }
+
+    &:active,
+    &:focus {
+      background-color: var(--brand);
+      color: var(--white);
     }
   }
 }
