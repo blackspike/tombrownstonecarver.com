@@ -25,10 +25,16 @@ const footerLinks = data.value.siteSettings.siteSettings.socialLinks
   background-color: var(--white);
   display: grid;
   gap: var(--size-5);
-  grid-template-areas: 'logo nav';
+  grid-template-areas: 'logo' 'nav';
   grid-template-columns: 1fr auto;
   padding-block: var(--size-13) var(--size-12);
   z-index: var(--layer-3);
+
+  @include media-query('lg') {
+    grid-template-areas: 'logo nav';
+    grid-template-columns: 1fr auto;
+
+  }
 
   &__logo {
     color: var(--text);
@@ -45,16 +51,18 @@ const footerLinks = data.value.siteSettings.siteSettings.socialLinks
 
 // Nav
 .nav {
-  gap: var(--size-fluid-4);
-  display: none;
-  gap: var(--size-fluid-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-5);
 
   @include media-query('lg') {
-    display: flex;
+    gap: var(--size-fluid-4);
+    flex-direction: row;
   }
 
   &__link {
     color: var(--text);
+    display: block;
     font-size: var(--font-size-3);
     text-decoration: none;
   }
