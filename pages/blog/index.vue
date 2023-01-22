@@ -65,7 +65,6 @@ useHead({
       font-size: 6rem;
     }
 
-    font-size: var(--font-size-3);
     grid-area: content;
     line-height: var(--font-lineheight-4);
     max-width: var(--size-content-3);
