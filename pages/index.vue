@@ -1,8 +1,9 @@
 <template lang="pug">
 
 main.home
-
   section.hero
+
+    pre {{ homePage }}
 
     //- Hero
     ImageSingle.hero__image(
@@ -80,7 +81,14 @@ main.home
 
 </template>
 
+<script setup>
 
+/* Get Page
+============================= */
+
+const { data: homePage } = await useAsyncData('homePage', () => GqlHomePage())
+
+</script>
 
 <style lang="scss" scoped>
 .hero {

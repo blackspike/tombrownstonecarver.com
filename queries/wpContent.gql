@@ -15,16 +15,14 @@ query WpContent {
       }
     }
   }
+
   siteSettings {
-    site {
-      meta {
-        title
-        shortTitle
-        description
-      }
-      banner {
-        title
-        link
+    siteSettings {
+      socialLinks {
+        links {
+          title
+          url
+        }
       }
     }
   }
