@@ -2,7 +2,7 @@
 .header-wrapper
   header.header.container
 
-    nuxt-link.header__logo(to="/") Tom Brown
+    nuxt-link.header__logo(to="/")  {{ data.generalSettings.title }}
 
     nav.header__nav.nav
       nuxt-link.nav__link(to="/sculpture") Sculpture
@@ -13,6 +13,10 @@
       nuxt-link.nav__link(to="/contact") Contact
 
 </template>
+
+<script setup>
+const { data } = await useAsyncData('siteSettings', () => GqlSiteSettings())
+</script>
 
 <style lang="scss" scoped>
 .header-wrapper {

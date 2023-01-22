@@ -82,10 +82,11 @@ const props = defineProps({
 
   &__intro {
     grid-area: intro;
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-4);
     line-height: var(--font-lineheight-4);
 
     @include media-query('lg') {
+      font-size: var(--font-size-5);
       padding-block: var(--size-13) 0;
     }
 

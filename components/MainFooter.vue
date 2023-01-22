@@ -2,7 +2,7 @@
 .footer-wrapper
   footer.footer.container
 
-    nuxt-link.footer__logo(to="/") Tom Brown
+    nuxt-link.footer__logo(to="/") {{ data.generalSettings.title }}
 
     nav.footer__nav.nav
       a.nav__link(v-for="link in footerLinks" :href="link.links.url") {{ link.links.title }}

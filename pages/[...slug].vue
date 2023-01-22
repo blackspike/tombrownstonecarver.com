@@ -1,54 +1,46 @@
 <template lang="pug">
 
-.hero
+main.page
 
-  //- Hero
-  .hero__hero
+  .hero
 
+    //- Hero
+    .hero__hero
 
-    //- Image
-    ImageSingle.hero__image(
-      :path="image"
-      :width="1200"
-      :height="1200"
-      type="jpg"
-      :avif="true"
-      :webp="true"
-      fit="cover"
-      :lazy="true"
-    )
+      //- Image
+      img.hero__image(
+        sizes="sm:100vw md:50vw lg:1920px"
+        :srcset="page.featuredImage.node.srcSet"
+        :alt="page.featuredImage.node.altText"
+        :height='page.featuredImage.node.mediaDetails.height'
+        :width='page.featuredImage.node.mediaDetails.width'
+      )
 
 
-    //- title
-    h1.hero__title.container {{ title }}
+      //- title
+      h1.hero__title.container {{ page.title }}
 
-  .container
+    .container
 
-    //- Hero content
-    .hero__content-wrapper
+      //- Hero content
+      .hero__content-wrapper
 
-      //- intro
-      .hero__intro
-        slot(name="intro")
+        //- intro
+        .hero__intro(v-html="page.intro.intro")
 
-      //- hero
-      .hero__content
-        slot(name="content")
+        //- hero
+        .hero__content(v-html="page.content")
 
 
 </template>
 
 <script setup>
-const props = defineProps({
-  image: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: true
-  },
-})
+
+const route = useRoute()
+const slug = route.params.slug[0]
+const { data } = await useAsyncData(slug, () => GqlPostBySlug({ uri: slug }))
+const page = data.value.nodeByUri
+
 </script>
 
 <style lang="scss" scoped>

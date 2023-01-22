@@ -10,6 +10,9 @@ query PostBySlug($uri: String!) {
 fragment Page on Page {
   title
   content
+  intro {
+    intro
+  }
   featuredImage {
     node {
       altText

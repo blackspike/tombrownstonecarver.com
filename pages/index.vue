@@ -20,11 +20,10 @@ main.home
       h1.hero__title {{ homeData.home.pageTitle }}
 
   //- Home content sections
-
   section.container(v-for="(section, index) in homeData.home.content")
 
-    //- Sculpture
-    HomeBody(
+    //- Section
+    HomeSection(
       :content="section.content"
       :image="section.image"
       :intro="section.intro"
