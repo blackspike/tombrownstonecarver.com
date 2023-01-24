@@ -13,6 +13,20 @@ fragment Page on Page {
   intro {
     intro
   }
+  gallery {
+    gallery {
+      image {
+        altText
+        srcSet
+        caption
+        sourceUrl
+        mediaDetails {
+          height
+          width
+        }
+      }
+    }
+  }
   featuredImage {
     node {
       altText

@@ -28,9 +28,20 @@ main.page
       .page__intro(v-html="page.intro.intro")
 
       //- Content
-      .page__content(v-html="page.content")
+      .page__content.text-content(v-html="page.content")
 
 
+  //- Gallery
+  .gallery
+    .container
+      h2.gallery__title Gallery
+
+      .card-list
+        Card(
+          v-for="card in page.gallery.gallery"
+          :title="card.caption"
+          :image="card.image"
+          )
 </template>
 
 <script setup>
@@ -67,6 +78,7 @@ useHead({
     grid-row: 1;
     max-height: 100vh;
     padding-block-end: 10vh;
+    text-shadow: 0 0 2rem rgba(0 0 0 / .5);
 
     @include media-query('lg') {
       font-size: 6rem;
@@ -85,10 +97,10 @@ useHead({
     display: flex;
     flex-direction: column;
     gap: var(--size-9);
-    padding-block: var(--size-10) 0;
+    padding-block: var(--size-10);
 
     @include media-query('lg') {
-      padding-block: var(--size-12) var(--size-7);
+      padding-block: var(--size-12);
       display: grid;
       gap: var(--size-9);
       grid-template-areas: 'intro content';
@@ -108,5 +120,30 @@ useHead({
     line-height: var(--font-lineheight-4);
     max-width: var(--size-content-3);
   }
+}
+
+// Gallery
+.gallery {
+  width: 100%;
+  background-color: var(--gray-9);
+  color: var(--white);
+  padding-block: var(--size-12);
+
+
+  &__title {
+    margin-block-end: var(--size-9);
+    font-size: var(--font-size-fluid-3);
+
+    @include media-query('lg') {
+      font-size: 6rem;
+    }
+  }
+}
+
+.card-list {
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(25rem, 100%), 1fr));
+  gap: var(--size-fluid-5);
 }
 </style>

@@ -1,0 +1,70 @@
+/* Text content
+============================= */
+
+.text-content {
+  --tc-margin-block: var(--size-fluid-4);
+  color: var(--text-prose);
+  line-height: var(--font-lineheight-4);
+
+  @include media-query('sm') {
+    font-size: var(--font-size-3);
+  }
+
+  @include media-query('lg') {
+    font-size: var(--font-size-4);
+  }
+
+  // Headers
+  :is(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+    margin-block: var(--tc-margin-block);
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  h1:first-of-type,
+  .h1:first-of-type {
+    margin-block-start: 0;
+  }
+
+  h2,
+  .h2 {
+    @include media-query('md') {
+      letter-spacing: -.5px;
+    }
+  }
+
+  // lLists
+  ol,
+  ul {
+    padding-inline-start: var(--size-6);
+    margin-block: var(--tc-margin-block);
+    list-style-type: square;
+
+    li {
+      line-height: var(--font-lineheight-4);
+      margin: var(--size-1) 0;
+
+      &::marker {
+        color: var(--brand);
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+
+    li::marker {
+      color: var(--text);
+    }
+  }
+
+  // Quotes
+
+  blockquote {
+    font-size: var(--font-size-fluid-1);
+  }
+
+
+}
