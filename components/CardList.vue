@@ -23,7 +23,6 @@ const props = defineProps({
 .card-list {
   align-items: center;
   display: grid;
-  // grid-template-rows: 20rem;
   grid-template-columns: repeat(auto-fill, minmax(min(25rem, 100%), 1fr));
   gap: var(--size-fluid-5);
 }

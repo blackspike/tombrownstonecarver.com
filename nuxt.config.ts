@@ -100,10 +100,10 @@ export default defineNuxtConfig({
   // Modules
   modules: ["nuxt-graphql-client", "nuxt-plausible"],
 
-  // // plausible
-  // plausible: {
-  //   domain: "tombrownstonecarver.com",
-  // },
+  // plausible
+  plausible: {
+    domain: "tombrownstonecarver.com",
+  },
 
   // GraphQL
   runtimeConfig: {

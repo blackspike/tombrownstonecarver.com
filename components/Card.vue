@@ -1,10 +1,26 @@
 <template lang="pug">
 
-nuxt-link.card(:to="link")
+nuxt-link.card(v-if="link" :to="link")
 
   //- Image
   img.card__image(
     v-if="image.sourceUrl"
+    :sizes="image.sizes"
+    :srcset="image.srcSet"
+    :src="image.sourceUrl"
+    :alt="image.altText"
+    loading="lazy"
+    :height='image.mediaDetails.height'
+    :width='image.mediaDetails.width'
+  )
+
+  //- title
+  h3.card__title {{ title }}
+
+article.card(v-else)
+
+  //- Image
+  img.card__image(
     :sizes="image.sizes"
     :srcset="image.srcSet"
     :src="image.sourceUrl"
@@ -27,7 +43,7 @@ const props = defineProps({
   },
   title: {
     type: String,
-    required: true
+    required: false
   },
   link: {
     type: String,
