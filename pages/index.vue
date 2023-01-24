@@ -57,15 +57,16 @@ const homeData = data.value.nodeByUri
   &__content {
     grid-row: 1;
     grid-column: 1;
-    height: 100vh;
+    height: 80vh;
     display: flex;
-    align-items: center;
+    align-items: end;
     z-index: 2;
   }
 
   &__title {
     font-size: var(--font-size-fluid-3);
     color: var(--white);
+    max-width: 1000px;
 
     @media (min-height: 500px) and (min-width: 1200px) {
       font-size: 5rem;
