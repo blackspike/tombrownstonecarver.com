@@ -67,9 +67,10 @@ const homeData = data.value.nodeByUri
     font-size: var(--font-size-fluid-3);
     color: var(--white);
 
-    @include media-query('lg') {
+    @media (min-height: 500px) and (min-width: 1200px) {
       font-size: 5rem;
     }
+
   }
 }
 </style>

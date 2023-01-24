@@ -14,25 +14,25 @@
       nuxt-link.nav__link(to="/blog") Blog
       nuxt-link.nav__link(to="/contact") Contact
 
-  //- Nav mobile
-  nav.header__nav-mobile.nav-mobile#nav-mobile(v-if="menuOpen")
-    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/sculpture") Sculpture
-    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/restoration") Restoration
-    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/courses") Courses
-    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/about") About
-    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/blog") Blog
-    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/contact") Contact
+    //- Nav mobile
+    nav.header__nav-mobile.nav-mobile#nav-mobile(v-if="menuOpen")
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/sculpture") Sculpture
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/restoration") Restoration
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/courses") Courses
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/about") About
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/blog") Blog
+      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/contact") Contact
 
-  //-  Nav toggle button
-  button.btn-toggle-nav.header__nav-toggle(
-    :aria-expanded='menuOpen'
-    @click="menuOpen = !menuOpen"
-    aria-controls='nav-mobile'
-    aria-label='Toggle Menu'
-    type='button'
-  )
-    span(v-if="menuOpen") Close
-    span(v-else) Menu
+    //-  Nav toggle button
+    button.btn-toggle-nav.header__nav-toggle(
+      :aria-expanded='menuOpen'
+      @click="menuOpen = !menuOpen"
+      aria-controls='nav-mobile'
+      aria-label='Toggle Menu'
+      type='button'
+    )
+      span(v-if="menuOpen") Close
+      span(v-else) Menu
 
 </template>
 
@@ -48,7 +48,6 @@ const menuOpen = ref(false)
 .header-wrapper {
   background-image: linear-gradient(to bottom, rgba(0 0 0 / .5), rgba(0 0 0 / 0));
   backdrop-filter: blur(2px);
-
   position: absolute;
   top: 0;
   left: 0;
@@ -106,7 +105,7 @@ const menuOpen = ref(false)
 
   &__link {
     color: var(--white);
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-1);
     line-height: var(--font-lineheight-1);
     font-weight: var(--font-weight-7);
     display: block;
@@ -116,6 +115,10 @@ const menuOpen = ref(false)
     transition: background-color .2s var(--ease-in-out-3);
     background-color: rgba(0 0 0 / .1);
     backdrop-filter: blur(10px);
+
+    @include media-query('xl') {
+      font-size: var(--font-size-2);
+    }
 
     &:hover {
       background-color: rgba(0 0 0 / .3);
