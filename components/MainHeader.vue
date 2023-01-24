@@ -14,25 +14,25 @@
       nuxt-link.nav__link(to="/blog") Blog
       nuxt-link.nav__link(to="/contact") Contact
 
-    //- Nav mobile
-    nav.header__nav-mobile.nav-mobile#nav-mobile(v-if="menuOpen")
-      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/sculpture") Sculpture
-      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/restoration") Restoration
-      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/courses") Courses
-      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/about") About
-      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/blog") Blog
-      nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/contact") Contact
+  //- Nav mobile
+  nav.header__nav-mobile.nav-mobile#nav-mobile(v-if="menuOpen")
+    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/sculpture") Sculpture
+    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/restoration") Restoration
+    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/courses") Courses
+    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/about") About
+    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/blog") Blog
+    nuxt-link.nav-mobile__link(v-on:click.native="menuOpen = false" to="/contact") Contact
 
-    //-  Nav toggle button
-    button.btn-toggle-nav.header__nav-toggle(
-      :aria-expanded='menuOpen'
-      @click="menuOpen = !menuOpen"
-      aria-controls='nav-mobile'
-      aria-label='Toggle Menu'
-      type='button'
-    )
-      span(v-if="menuOpen") Close
-      span(v-else) Menu
+  //-  Nav toggle button
+  button.btn-toggle-nav.header__nav-toggle(
+    :aria-expanded='menuOpen'
+    @click="menuOpen = !menuOpen"
+    aria-controls='nav-mobile'
+    aria-label='Toggle Menu'
+    type='button'
+  )
+    span(v-if="menuOpen") Close
+    span(v-else) Menu
 
 </template>
 
@@ -98,7 +98,7 @@ const menuOpen = ref(false)
 // Nav main
 .nav {
   display: none;
-  gap: var(--size-fluid-4);
+  gap: var(--size-4);
 
   @include media-query('lg') {
     display: flex;
@@ -106,12 +106,23 @@ const menuOpen = ref(false)
 
   &__link {
     color: var(--white);
-    font-size: var(--font-size-3);
+    font-size: var(--font-size-2);
+    line-height: var(--font-lineheight-1);
+    font-weight: var(--font-weight-7);
+    display: block;
+    padding: var(--size-2) var(--size-4) calc(var(--size-2) + 2px);
+    border-radius: var(--radius-5);
     text-decoration: none;
-    text-shadow: 0 0 3rem rgba(0 0 0 / .5);
+    transition: background-color .2s var(--ease-in-out-3);
+    background-color: rgba(0 0 0 / .1);
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background-color: rgba(0 0 0 / .3);
+    }
 
     &.router-link-active {
-      color: var(--brand);
+      background-color: rgba(0 0 0 / .8);
     }
   }
 }
