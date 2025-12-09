@@ -1,3 +1,3 @@
 <script type="text/javascript">
-  window.location = 'https://cms.blackspike.com/tom-brown/admin';
+  window.location = 'https://blackspike.net/tom-brown/admin';
 </script>

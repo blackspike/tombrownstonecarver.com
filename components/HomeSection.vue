@@ -25,7 +25,7 @@
     .body__body(v-html="content")
 
     //- Link
-    nuxt-link.body__link(v-if="link" :to="link.url.replace('https://cms.blackspike.com/tom-brown', '')") {{ link.title }}
+    nuxt-link.body__link(v-if="link" :to="link.url.replace('https://blackspike.net/tom-brown', '')") {{ link.title }}
 
 </template>
 
